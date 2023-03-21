@@ -8,7 +8,7 @@ import pandas as pd
 import seaborn as sns
 from ipywidgets import interact, fixed
 
-symbol_file = '/Users/rebeccali/Desktop/huawei_competition/demos/SampleStocks.csv'
+symbol_file = '/opt/demos/SampleStocks.csv'
 symbol = pd.read_csv(symbol_file, index_col=None)['Code'].to_list()
 
 sns.set()
@@ -29,15 +29,15 @@ def df_interact(df, nrows=7, ncols=7):
     interact(peek, row=row_arg, col=col_arg)
     print('({} rows, {} columns) total'.format(df.shape[0], df.shape[1]))
 
-tickdata_0306 = pd.read_csv('tickdata_20230306.csv')
-tickdata_0307 = pd.read_csv('tickdata_20230307.csv')
-tickdata_0308 = pd.read_csv('tickdata_20230308.csv')
-tickdata_0309 = pd.read_csv('tickdata_20230309.csv')
-tickdata_0310 = pd.read_csv('tickdata_20230310.csv')
-tickdata_0313 = pd.read_csv('tickdata_20230313.csv')
-tickdata_0314 = pd.read_csv('tickdata_20230314.csv')
-tickdata_0315 = pd.read_csv('tickdata_20230315.csv')
-tickdata_0316 = pd.read_csv('tickdata_20230316.csv')
+tickdata_0306 = pd.read_csv('/opt/new_tickdata/tickdata_20230306.csv')
+tickdata_0307 = pd.read_csv('/opt/new_tickdata/tickdata_20230307.csv')
+tickdata_0308 = pd.read_csv('/opt/new_tickdata/tickdata_20230308.csv')
+tickdata_0309 = pd.read_csv('/opt/new_tickdata/tickdata_20230309.csv')
+tickdata_0310 = pd.read_csv('/opt/new_tickdata/tickdata_20230310.csv')
+tickdata_0313 = pd.read_csv('/opt/new_tickdata/tickdata_20230313.csv')
+tickdata_0314 = pd.read_csv('/opt/new_tickdata/tickdata_20230314.csv')
+tickdata_0315 = pd.read_csv('/opt/new_tickdata/tickdata_20230315.csv')
+tickdata_0316 = pd.read_csv('/opt/new_tickdata/tickdata_20230316.csv')
 tickdata = pd.concat([tickdata_0306, tickdata_0307, tickdata_0308, tickdata_0309,
                       tickdata_0310, tickdata_0313, tickdata_0314, tickdata_0315], axis=0).reset_index(drop=True)
 columns_name = ['Index', 'Stock code', 'Tick time', 'Open', 'High', 'Low', 'Last transaction price'] + (
